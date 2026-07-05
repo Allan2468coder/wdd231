@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Allan Codes site logo</title>
+  <desc id="desc">A geometric blue and gold mark with connected code brackets.</desc>
+  <rect width="96" height="96" rx="18" fill="#103d4a"/>
+  <path d="M24 28 10 48l14 20M72 28l14 20-14 20" fill="none" stroke="#f6c453" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M57 18 39 78" fill="none" stroke="#f7fbff" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="48" cy="48" r="9" fill="#3dd6c6"/>
+</svg>

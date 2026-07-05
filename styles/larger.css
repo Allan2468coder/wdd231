@@ -1,0 +1,62 @@
+@media screen and (min-width: 700px) {
+  header {
+    padding: 1.2rem 1rem;
+  }
+
+  .brand img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .primary-nav,
+  .primary-nav.open {
+    display: flex;
+  }
+
+  .primary-nav a {
+    flex: 1 1 0;
+    border-top: 0;
+    border-right: 1px solid rgb(255 255 255 / 14%);
+    text-align: center;
+  }
+
+  .primary-nav a:last-child {
+    border-right: 0;
+  }
+
+  .intro-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    align-items: stretch;
+  }
+
+  .about-card .panel-body,
+  .photo-card .panel-body {
+    min-height: 17rem;
+  }
+
+  .courses-panel {
+    margin-top: 1.25rem;
+  }
+
+  .course-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    margin-bottom: 1.5rem;
+  }
+
+  .panel-body {
+    padding: 1.15rem;
+  }
+
+  .course-card {
+    min-height: 18rem;
+  }
+}
