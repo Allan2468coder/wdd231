@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore trusted local businesses and organizations in the Lira City Chamber of Commerce directory.">
+  <meta name="author" content="Ogwal Allan">
+  <meta property="og:title" content="Business Directory | Lira City Chamber of Commerce">
+  <meta property="og:description" content="Discover trusted local businesses, services, and partners in Lira City.">
+  <meta property="og:image" content="https://allan2468coder.github.io/wdd231/chamber/images/social-card.svg">
+  <meta property="og:url" content="https://allan2468coder.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Business Directory | Lira City Chamber of Commerce</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="scripts/directory.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Lira City Chamber of Commerce home">
+        <img src="images/chamber-mark.svg" alt="" width="48" height="48">
+        <span><strong>Lira City</strong><small>Chamber of Commerce</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="directory.html" aria-current="page">Directory</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="directory-intro" aria-labelledby="directory-title">
+      <p class="eyebrow">Local connections, lasting growth</p>
+      <h1 id="directory-title">Business Directory</h1>
+      <p>Meet the people and organizations helping Lira City thrive every day.</p>
+    </section>
+    <section class="directory-section" aria-labelledby="directory-title">
+      <div class="directory-controls" role="group" aria-label="Directory layout">
+        <button id="grid-view" class="view-button is-active" type="button" aria-pressed="true" title="Show member cards">
+          <span aria-hidden="true">▦</span> Grid
+        </button>
+        <button id="list-view" class="view-button" type="button" aria-pressed="false" title="Show member list">
+          <span aria-hidden="true">☷</span> List
+        </button>
+      </div>
+      <div id="member-directory" class="member-grid" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Lira City Chamber</h2>
+        <address>12 Oyam Road<br>Lira City, Northern Region<br><a href="tel:+256772555300">+256 772 555 300</a><br><a href="mailto:hello@lirachamber.org">hello@lirachamber.org</a></address>
+      </section>
+      <div class="footer-mark" aria-hidden="true"><img src="images/chamber-mark.svg" alt="" width="58" height="58"></div>
+      <section class="developer-info">
+        <p>WDD 231 Class Project</p>
+        <p>Ogwal Allan</p>
+        <p>&copy; <span id="currentyear"></span> Lira City Chamber</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

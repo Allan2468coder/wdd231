@@ -1,0 +1,9 @@
+[
+  {"name":"Lira Harvest Market","address":"18 Obote Avenue, Lira City","phone":"+256 772 410 201","website":"https://example.com/lira-harvest","image":"harvest.svg","membershipLevel":3,"category":"Retail"},
+  {"name":"Northern Star Clinic","address":"42 Ogwanggu Road, Lira City","phone":"+256 772 410 202","website":"https://example.com/northern-star","image":"clinic.svg","membershipLevel":3,"category":"Health"},
+  {"name":"Atek Textile House","address":"7 Adyel Lane, Lira City","phone":"+256 772 410 203","website":"https://example.com/atek-textile","image":"textile.svg","membershipLevel":2,"category":"Retail"},
+  {"name":"Lango Coffee Roasters","address":"31 Kwania Street, Lira City","phone":"+256 772 410 204","website":"https://example.com/lango-coffee","image":"coffee.svg","membershipLevel":2,"category":"Food & Drink"},
+  {"name":"Acoli Digital Studio","address":"5 Oyam Road, Lira City","phone":"+256 772 410 205","website":"https://example.com/acoli-digital","image":"digital.svg","membershipLevel":3,"category":"Technology"},
+  {"name":"Unity Savings Co-op","address":"66 Juba Road, Lira City","phone":"+256 772 410 206","website":"https://example.com/unity-savings","image":"savings.svg","membershipLevel":1,"category":"Finance"},
+  {"name":"River Nile Logistics","address":"13 Kampala Road, Lira City","phone":"+256 772 410 207","website":"https://example.com/river-nile","image":"logistics.svg","membershipLevel":2,"category":"Transport"}
+]
