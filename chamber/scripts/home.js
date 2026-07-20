@@ -64,54 +64,6 @@ function displayOpenMeteoForecast(data) {
   });
 }
 
-function displayCurrentWeather(data) {
-  const temp = Math.round(data.main.temp);
-  const desc = data.weather[0].description;
-  const icon = data.weather[0].icon;
-  const humidity = data.main.humidity;
-
-  document.querySelector('#weather-icon').src =
-    `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  document.querySelector('#weather-icon').alt = desc;
-  document.querySelector('#weather-temp').textContent = `${temp}°C`;
-  document.querySelector('#weather-desc').textContent =
-    desc.charAt(0).toUpperCase() + desc.slice(1);
-  document.querySelector('#weather-humidity').textContent = `Humidity: ${humidity}%`;
-}
-
-function displayForecast(data) {
-  // Get one reading per day (midday approx) for next 3 days
-  const dailyForecasts = [];
-  const seenDates = new Set();
-
-  for (const item of data.list) {
-    const date = item.dt_txt.split(' ')[0];
-    if (!seenDates.has(date)) {
-      seenDates.add(date);
-      dailyForecasts.push(item);
-    }
-    if (dailyForecasts.length === 4) break; // today + 3 more
-  }
-
-  // Skip today's forecast (index 0), show next 3 days (index 1-3)
-  const cards = document.querySelectorAll('.forecast-card');
-  const forecastDays = dailyForecasts.slice(1, 4);
-
-  forecastDays.forEach((day, i) => {
-    if (i >= cards.length) return;
-    const card = cards[i];
-    const dateObj = new Date(day.dt_txt + ' UTC');
-    const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
-    const temp = Math.round(day.main.temp);
-    const icon = day.weather[0].icon;
-
-    card.querySelector('.forecast-day').textContent = dayName;
-    card.querySelector('img').src =
-      `https://openweathermap.org/img/wn/${icon}.png`;
-    card.querySelector('img').alt = day.weather[0].description;
-    card.querySelector('.forecast-temp').textContent = `${temp}°C`;
-  });
-}
 
 /* ─── Spotlights ──────────────────────────────────────────────────── */
 
