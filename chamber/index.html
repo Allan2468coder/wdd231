@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lira City Chamber of Commerce — connecting businesses, building community, and driving prosperity in Lira City.">
+  <meta name="author" content="Ogwal Allan">
+  <meta property="og:title" content="Lira City Chamber of Commerce">
+  <meta property="og:description" content="Join Lira City's premier business network. Discover events, resources, and opportunities to grow your business.">
+  <meta property="og:image" content="https://allan2468coder.github.io/wdd231/chamber/images/social-card.svg">
+  <meta property="og:url" content="https://allan2468coder.github.io/wdd231/chamber/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Lira City Chamber of Commerce</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="../scripts/navigation.js" defer></script>
+  <script src="scripts/home.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Lira City Chamber of Commerce home">
+        <img src="images/chamber-mark.svg" alt="" width="48" height="48">
+        <span><strong>Lira City</strong><small>Chamber of Commerce</small></span>
+      </a>
+      <button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Lira City Chamber of Commerce</p>
+        <h1 id="hero-heading">Together We Build<br>a Thriving Business Community</h1>
+        <p>Connect. Grow. Prosper. Join the network driving Lira City forward.</p>
+        <a href="join.html" class="cta-button">Join the Chamber</a>
+      </div>
+    </section>
+
+    <!-- Current Events Section -->
+    <section class="events-section section-padding" aria-labelledby="events-heading">
+      <div class="section-container">
+        <p class="eyebrow">Stay connected</p>
+        <h2 id="events-heading">Upcoming Events</h2>
+        <div class="events-grid">
+          <article class="event-card">
+            <time class="event-date" datetime="2025-05-15"><span class="event-day">15</span> May</time>
+            <div class="event-body">
+              <h3>Annual Business Expo 2025</h3>
+              <p>Showcase your business, network with industry leaders, and explore new opportunities at Lira City's premier business exposition.</p>
+              <p class="event-meta"><strong>📍</strong> Lira City Hall &bull; 8:00 AM – 5:00 PM</p>
+            </div>
+          </article>
+          <article class="event-card">
+            <time class="event-date" datetime="2025-06-02"><span class="event-day">02</span> Jun</time>
+            <div class="event-body">
+              <h3>Small Business Workshop</h3>
+              <p>Practical strategies for digital transformation, financial management, and market expansion tailored for small and medium enterprises.</p>
+              <p class="event-meta"><strong>📍</strong> Chamber Board Room &bull; 10:00 AM – 1:00 PM</p>
+            </div>
+          </article>
+          <article class="event-card">
+            <time class="event-date" datetime="2025-06-20"><span class="event-day">20</span> Jun</time>
+            <div class="event-body">
+              <h3>Networking Mixer</h3>
+              <p>An evening of meaningful connections with fellow chamber members, community leaders, and potential partners over refreshments.</p>
+              <p class="event-meta"><strong>📍</strong> Hotel Africana &bull; 5:30 PM – 7:30 PM</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather-section section-padding" aria-labelledby="weather-heading">
+      <div class="section-container">
+        <p class="eyebrow">Lira City forecast</p>
+        <h2 id="weather-heading">Weather</h2>
+        <div class="weather-display" id="weather-display">
+          <div class="weather-current">
+            <div class="weather-icon-wrap">
+              <span id="weather-icon" class="weather-icon" role="img" aria-label="Loading weather"></span>
+            </div>
+            <div class="weather-current-info">
+              <p class="weather-temp" id="weather-temp">--</p>
+              <p class="weather-desc" id="weather-desc">Loading weather data…</p>
+              <p class="weather-humidity" id="weather-humidity"></p>
+            </div>
+          </div>
+          <div class="weather-forecast" id="weather-forecast">
+            <h3>3-Day Forecast</h3>
+            <div class="forecast-cards" id="forecast-cards">
+              <div class="forecast-card">
+                <p class="forecast-day">--</p>
+                <span class="forecast-icon" role="img" aria-label="Loading forecast"></span>
+                <p class="forecast-temp">--</p>
+              </div>
+              <div class="forecast-card">
+                <p class="forecast-day">--</p>
+                <span class="forecast-icon" role="img" aria-label="Loading forecast"></span>
+                <p class="forecast-temp">--</p>
+              </div>
+              <div class="forecast-card">
+                <p class="forecast-day">--</p>
+                <span class="forecast-icon" role="img" aria-label="Loading forecast"></span>
+                <p class="forecast-temp">--</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Spotlights Section -->
+    <section class="spotlights-section section-padding" aria-labelledby="spotlights-heading">
+      <div class="section-container">
+        <p class="eyebrow">Our members</p>
+        <h2 id="spotlights-heading">Company Spotlights</h2>
+        <div class="spotlights-grid" id="spotlights-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Lira City Chamber</h2>
+        <address>12 Oyam Road<br>Lira City, Northern Region<br><a href="tel:+256772555300">+256 772 555 300</a><br><a href="mailto:hello@lirachamber.org">hello@lirachamber.org</a></address>
+      </section>
+      <div class="footer-mark" aria-hidden="true"><img src="images/chamber-mark.svg" alt="" width="58" height="58"></div>
+      <section class="developer-info">
+        <p>WDD 231 Class Project</p>
+        <p>Ogwal Allan</p>
+        <p>&copy; <span id="currentyear"></span> Lira City Chamber</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>
+
