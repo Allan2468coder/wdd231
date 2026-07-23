@@ -6,18 +6,28 @@
 
 const LAT = '2.2474';
 const LON = '32.9010';
-const WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,weather_code&daily=weather_code,temperature_2m_max&timezone=auto&forecast_days=4`;
+const WEATHER_API_KEY = 'demo';
+const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&appid=${WEATHER_API_KEY}`;
+const FORECAST_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${LAT}&lon=${LON}&units=metric&appid=${WEATHER_API_KEY}`;
 
 /* ─── Weather ─────────────────────────────────────────────────────── */
 
 async function getWeather() {
   try {
-    const response = await fetch(WEATHER_URL);
-    if (!response.ok) throw new Error(`Weather API responded with ${response.status}`);
+    const [currentResponse, forecastResponse] = await Promise.all([
+      fetch(WEATHER_URL),
+      fetch(FORECAST_URL)
+    ]);
 
-    const weather = await response.json();
-    displayOpenMeteoCurrentWeather(weather.current);
-    displayOpenMeteoForecast(weather.daily);
+    if (!currentResponse.ok || !forecastResponse.ok) {
+      throw new Error(`Weather API responded with ${currentResponse.status} / ${forecastResponse.status}`);
+    }
+
+    const currentWeather = await currentResponse.json();
+    const forecastWeather = await forecastResponse.json();
+
+    displayCurrentWeather(currentWeather);
+    displayForecast(forecastWeather);
   } catch (error) {
     console.error('Weather fetch failed:', error);
     document.querySelector('#weather-display').innerHTML =
@@ -25,62 +35,32 @@ async function getWeather() {
   }
 }
 
-function weatherDetails(code) {
-  if (code === 0) return { label: 'Clear sky', icon: '☀️' };
-  if (code <= 2) return { label: 'Partly cloudy', icon: '🌤️' };
-  if (code === 3) return { label: 'Overcast', icon: '☁️' };
-  if (code <= 48) return { label: 'Foggy', icon: '🌫️' };
-  if (code <= 57) return { label: 'Drizzle', icon: '🌦️' };
-  if (code <= 67) return { label: 'Rain', icon: '🌧️' };
-  if (code <= 77) return { label: 'Snow', icon: '❄️' };
-  if (code <= 82) return { label: 'Rain showers', icon: '🌧️' };
-  return { label: 'Thunderstorm', icon: '⛈️' };
-}
-
-function displayOpenMeteoCurrentWeather(data) {
-  const { label, icon } = weatherDetails(data.weather_code);
-  const weatherIcon = document.querySelector('#weather-icon');
-
-  weatherIcon.textContent = icon;
-  weatherIcon.setAttribute('aria-label', label);
-  document.querySelector('#weather-temp').textContent = `${Math.round(data.temperature_2m)}\u00B0C`;
-  document.querySelector('#weather-desc').textContent = label;
-  document.querySelector('#weather-humidity').textContent = `Humidity: ${data.relative_humidity_2m}%`;
-}
-
-function displayOpenMeteoForecast(data) {
-  const cards = document.querySelectorAll('.forecast-card');
-
-  data.time.slice(1, 4).forEach((date, index) => {
-    const card = cards[index];
-    const { label, icon } = weatherDetails(data.weather_code[index + 1]);
-    const dayName = new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { weekday: 'short' });
-    const forecastIcon = card.querySelector('.forecast-icon');
-
-    card.querySelector('.forecast-day').textContent = dayName;
-    forecastIcon.textContent = icon;
-    forecastIcon.setAttribute('aria-label', label);
-    card.querySelector('.forecast-temp').textContent = `${Math.round(data.temperature_2m_max[index + 1])}\u00B0C`;
-  });
+function weatherIcon(main) {
+  if (main === 'Clear') return '☀️';
+  if (main === 'Clouds') return '☁️';
+  if (main === 'Rain' || main === 'Drizzle') return '🌧️';
+  if (main === 'Snow') return '❄️';
+  if (main === 'Thunderstorm') return '⛈️';
+  if (main === 'Mist' || main === 'Fog') return '🌫️';
+  return '🌤️';
 }
 
 function displayCurrentWeather(data) {
+  const weather = data.weather[0];
   const temp = Math.round(data.main.temp);
-  const desc = data.weather[0].description;
-  const icon = data.weather[0].icon;
   const humidity = data.main.humidity;
+  const description = weather.description.charAt(0).toUpperCase() + weather.description.slice(1);
+  const icon = weatherIcon(weather.main);
 
-  document.querySelector('#weather-icon').src =
-    `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  document.querySelector('#weather-icon').alt = desc;
+  const weatherIcon = document.querySelector('#weather-icon');
+  weatherIcon.textContent = icon;
+  weatherIcon.setAttribute('aria-label', description);
   document.querySelector('#weather-temp').textContent = `${temp}°C`;
-  document.querySelector('#weather-desc').textContent =
-    desc.charAt(0).toUpperCase() + desc.slice(1);
+  document.querySelector('#weather-desc').textContent = description;
   document.querySelector('#weather-humidity').textContent = `Humidity: ${humidity}%`;
 }
 
 function displayForecast(data) {
-  // Get one reading per day (midday approx) for next 3 days
   const dailyForecasts = [];
   const seenDates = new Set();
 
@@ -90,25 +70,24 @@ function displayForecast(data) {
       seenDates.add(date);
       dailyForecasts.push(item);
     }
-    if (dailyForecasts.length === 4) break; // today + 3 more
+    if (dailyForecasts.length === 4) break;
   }
 
-  // Skip today's forecast (index 0), show next 3 days (index 1-3)
   const cards = document.querySelectorAll('.forecast-card');
   const forecastDays = dailyForecasts.slice(1, 4);
 
   forecastDays.forEach((day, i) => {
-    if (i >= cards.length) return;
+    if (!cards[i]) return;
     const card = cards[i];
-    const dateObj = new Date(day.dt_txt + ' UTC');
+    const dateObj = new Date(day.dt_txt.replace(' ', 'T'));
     const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
     const temp = Math.round(day.main.temp);
-    const icon = day.weather[0].icon;
+    const icon = weatherIcon(day.weather[0].main);
+    const forecastIcon = card.querySelector('.forecast-icon');
 
     card.querySelector('.forecast-day').textContent = dayName;
-    card.querySelector('img').src =
-      `https://openweathermap.org/img/wn/${icon}.png`;
-    card.querySelector('img').alt = day.weather[0].description;
+    forecastIcon.textContent = icon;
+    forecastIcon.setAttribute('aria-label', day.weather[0].description);
     card.querySelector('.forecast-temp').textContent = `${temp}°C`;
   });
 }
