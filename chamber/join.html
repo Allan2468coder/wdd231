@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apply to join the Lira City Chamber of Commerce with this membership application.">
+  <meta name="author" content="Ogwal Allan">
+  <meta property="og:title" content="Join the Lira City Chamber">
+  <meta property="og:description" content="Submit your membership application for the Lira City Chamber of Commerce.">
+  <meta property="og:image" content="images/social-card.svg">
+  <meta property="og:url" content="join.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Join | Lira City Chamber</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/forms.css">
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Lira City Chamber of Commerce home">
+        <img src="images/chamber-mark.svg" alt="Lira City Chamber mark" width="48" height="48">
+        <span><strong>Lira City</strong><small>Chamber of Commerce</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html" aria-current="page">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="join-intro" aria-labelledby="join-title">
+      <h1 id="join-title">Apply to Join the Chamber</h1>
+      <p>Complete the membership application to connect with local businesses, attend member-only events, and access promotional opportunities.</p>
+    </section>
+
+    <div class="form-grid">
+      <form class="join-form" method="get" action="thankyou.html" aria-labelledby="join-title">
+        <div class="form-group">
+          <div class="form-field">
+            <label for="firstName">First Name
+              <input id="firstName" name="firstName" type="text" required title="Enter your first name" autocomplete="given-name">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="lastName">Last Name
+              <input id="lastName" name="lastName" type="text" required title="Enter your last name" autocomplete="family-name">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="title">Organization Title
+              <input id="title" name="title" type="text" title="Enter your organizational title" autocomplete="organization-title" pattern="^[A-Za-z\s-]{7,}$" placeholder="e.g. Marketing Manager">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address
+              <input id="email" name="email" type="email" required title="Enter your email address" autocomplete="email" placeholder="example@business.com">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="mobile">Mobile Phone
+              <input id="mobile" name="mobile" type="tel" required title="Enter your mobile phone number" autocomplete="tel" placeholder="+256 772 555 300">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="business">Business Name
+              <input id="business" name="business" type="text" required title="Enter your business or organization name" autocomplete="organization">
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="membership">Membership Level
+              <select id="membership" name="membership" required title="Select a membership level">
+                <option value="np">NP Membership (No fee)</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="description">Organization Description
+              <textarea id="description" name="description" title="Tell us about your business or organization"></textarea>
+            </label>
+          </div>
+          <input id="timestamp" name="timestamp" type="hidden">
+        </div>
+        <div class="submit-group">
+          <input type="submit" value="Submit Application">
+        </div>
+      </form>
+
+      <div class="membership-cards" aria-label="Membership benefits">
+        <article class="membership-card">
+          <h3>NP Membership</h3>
+          <p>Nonprofit organizations join with no fee and enjoy community support, listing visibility, and event invitations.</p>
+          <a href="#" data-modal="modal-np">View benefits</a>
+        </article>
+        <article class="membership-card">
+          <h3>Bronze Membership</h3>
+          <p>Bronze members receive promotional exposure, event news, and access to member-only business resources.</p>
+          <a href="#" data-modal="modal-bronze">View benefits</a>
+        </article>
+        <article class="membership-card">
+          <h3>Silver Membership</h3>
+          <p>Silver members gain priority spotlight placement, discounted event registration, and networking event invites.</p>
+          <a href="#" data-modal="modal-silver">View benefits</a>
+        </article>
+        <article class="membership-card">
+          <h3>Gold Membership</h3>
+          <p>Gold members receive premium advertising, dedicated showcase features, event sponsorship opportunities, and training access.</p>
+          <a href="#" data-modal="modal-gold">View benefits</a>
+        </article>
+      </div>
+    </div>
+
+    <div id="modal-np" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-labelledby="modal-np-title" tabindex="-1">
+        <button type="button" class="modal-close" aria-label="Close modal">✕</button>
+        <h2 id="modal-np-title">NP Membership Benefits</h2>
+        <ul>
+          <li>No membership fee or dues.</li>
+          <li>Chamber event invitations and community partnership access.</li>
+          <li>Listing in the nonprofit chamber directory.</li>
+          <li>Support for mission-focused outreach and visibility.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modal-bronze" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-labelledby="modal-bronze-title" tabindex="-1">
+        <button type="button" class="modal-close" aria-label="Close modal">✕</button>
+        <h2 id="modal-bronze-title">Bronze Membership Benefits</h2>
+        <ul>
+          <li>Featured listing on the chamber site.</li>
+          <li>Monthly member newsletter and event announcements.</li>
+          <li>Access to marketing resources and small business development content.</li>
+          <li>Participation in networking mixers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modal-silver" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-labelledby="modal-silver-title" tabindex="-1">
+        <button type="button" class="modal-close" aria-label="Close modal">✕</button>
+        <h2 id="modal-silver-title">Silver Membership Benefits</h2>
+        <ul>
+          <li>Rotating spotlight feature on the chamber homepage.</li>
+          <li>Discounts on chamber-hosted seminars and training sessions.</li>
+          <li>Priority access to sponsorship opportunities.</li>
+          <li>Member-to-member referral support.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modal-gold" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-labelledby="modal-gold-title" tabindex="-1">
+        <button type="button" class="modal-close" aria-label="Close modal">✕</button>
+        <h2 id="modal-gold-title">Gold Membership Benefits</h2>
+        <ul>
+          <li>Premium homepage spotlight and dedicated member showcase.</li>
+          <li>Complimentary booth space at the next chamber trade fair.</li>
+          <li>Advanced business training and leadership roundtables.</li>
+          <li>High visibility advertising across chamber communications.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Lira City Chamber</h2>
+        <address>12 Oyam Road<br>Lira City, Northern Region<br><a href="tel:+256772555300">+256 772 555 300</a><br><a href="mailto:hello@lirachamber.org">hello@lirachamber.org</a></address>
+      </section>
+      <div class="footer-mark" aria-hidden="true"><img src="images/chamber-mark.svg" alt="" width="58" height="58"></div>
+      <section class="developer-info">
+        <p>WDD 231 Class Project</p>
+        <p>Ogwal Allan</p>
+        <p>&copy; <span id="currentyear"></span> Lira City Chamber</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

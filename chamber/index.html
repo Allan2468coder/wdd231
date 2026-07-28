@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Welcome to the Lira City Chamber of Commerce home page featuring events, weather, and member spotlights.">
+  <meta name="author" content="Ogwal Allan">
+  <meta property="og:title" content="Lira City Chamber of Commerce">
+  <meta property="og:description" content="Supporting local business growth with events, weather, and member spotlights from Lira City.">
+  <meta property="og:image" content="images/social-card.svg">
+  <meta property="og:url" content="index.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Lira City Chamber | Home</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/home.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Lira City Chamber of Commerce home">
+        <img src="images/chamber-mark.svg" alt="Lira City Chamber mark" width="48" height="48">
+        <span><strong>Lira City</strong><small>Chamber of Commerce</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Grow with Lira City leaders</p>
+        <h1 id="home-title">A thriving chamber for business, community, and connection.</h1>
+        <p>Discover member resources, upcoming events, and local weather for businesses in Lira City. Join us to build stronger partnerships and enjoy exclusive chamber opportunities.</p>
+        <a class="hero-cta" href="join.html">Join the Chamber</a>
+      </div>
+      <div class="hero-visual">
+        <img src="images/social-card.svg" alt="Illustration of the Lira City Chamber of Commerce building and city growth">
+      </div>
+    </section>
+
+    <section class="home-panels">
+      <article class="card">
+        <h2>Current Events</h2>
+        <div class="event-list">
+          <div class="event-item">
+            <time datetime="2026-08-05">Aug 5, 2026 • 10:00 AM</time>
+            <p>Small Business Spotlight: Join local entrepreneurs for a presentation on scaling customer experience and networking.</p>
+          </div>
+          <div class="event-item">
+            <time datetime="2026-08-12">Aug 12, 2026 • 2:00 PM</time>
+            <p>Community Trade Fair at Lira Central Park. Meet gold and silver members, sample local products, and grow your connections.</p>
+          </div>
+          <div class="event-item">
+            <time datetime="2026-08-20">Aug 20, 2026 • 5:30 PM</time>
+            <p>Chamber Member Reception: Celebrate local business leaders and learn about new opportunities for sponsorship.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="weather-heading">
+        <h2 id="weather-heading">Local Weather</h2>
+        <div id="weather-display"></div>
+        <div id="forecast-grid" class="forecast-grid" aria-live="polite"></div>
+        <p id="weather-note" class="weather-note"></p>
+      </article>
+    </section>
+
+    <section class="spotlight-section" aria-labelledby="spotlight-title">
+      <p class="eyebrow">Member spotlight</p>
+      <h2 id="spotlight-title">Featured chamber businesses</h2>
+      <div id="spotlight-grid" class="spotlight-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Lira City Chamber</h2>
+        <address>12 Oyam Road<br>Lira City, Northern Region<br><a href="tel:+256772555300">+256 772 555 300</a><br><a href="mailto:hello@lirachamber.org">hello@lirachamber.org</a></address>
+      </section>
+      <div class="footer-mark" aria-hidden="true"><img src="images/chamber-mark.svg" alt="" width="58" height="58"></div>
+      <section class="developer-info">
+        <p>WDD 231 Class Project</p>
+        <p>Ogwal Allan</p>
+        <p>&copy; <span id="currentyear"></span> Lira City Chamber</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

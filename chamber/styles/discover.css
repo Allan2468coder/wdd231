@@ -1,0 +1,27 @@
+./* Discover page styles: named grid areas, card layout, hover effects. Color variables live in styles/small.css */
+. 
+.discover-intro{padding:40px 20px;background:linear-gradient(135deg,#f0fbfa,#fffaf0);border-bottom:1px solid var(--line)}
+.discover-intro .eyebrow{color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.discover-intro h1{color:var(--navy);font-size:clamp(1.8rem,4vw,2.6rem);margin:8px 0}
+.visit-message{color:var(--muted);max-width:880px}
+.discover-grid{padding:28px 18px}
+.cards{display:grid;grid-template-areas:
+  'a a'
+  'b c'
+  'd e';gap:18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;padding:0}
+.card img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .35s ease}
+.card .card-body{padding:14px}
+.card h3{margin:0 0 8px;color:var(--navy)}
+.card p{margin:0 0 12px;color:var(--muted)}
+.card .learn{display:inline-block;padding:8px 12px;background:var(--blue);color:var(--white);border-radius:8px;text-decoration:none;font-weight:700}
+/* Hover effect for larger screens */
+@media (min-width:720px){
+  .cards{grid-template-areas:'a b c d' 'a e f g';grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}
+  .card img:hover{transform:scale(1.05)}
+  .card img{height:180px}
+}
+/* Lazy-loading placeholder */
+.card .placeholder{background:linear-gradient(90deg,#f6f6f6,#eee);height:200px}
+/* Accessibility focus */
+.card a:focus{outline:3px solid rgba(23,106,115,.2);outline-offset:3px}
