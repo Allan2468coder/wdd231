@@ -17,8 +17,8 @@ function renderCards(items){
     <article class="card" role="listitem">
       <img src="${it.image}" alt="${it.alt}" loading="lazy" width="600" height="400">
       <div class="card-body">
-        <h3>${it.title}</h3>
-        <p>${it.address}</p>
+        <h2>${it.title}</h2>
+        <address>${it.address}</address>
         <p>${it.description}</p>
         <a class="learn" href="#" aria-label="Learn more about ${it.title}">Learn More</a>
       </div>
@@ -29,17 +29,24 @@ function renderCards(items){
 
 function setVisitMessage(){
   const key = 'lira_last_visit';
-  const now = new Date();
+  const now = Date.now();
   const prev = localStorage.getItem(key);
   const el = document.getElementById('visit-message');
-  if (prev){
-    const d = new Date(prev);
-    el.textContent = `Welcome back — your last visit was ${d.toLocaleString()}.`;
+  if (!prev) {
+    el.textContent = 'Welcome! Let us know if you have any questions.';
   } else {
-    el.textContent = 'Welcome — this is your first visit!';
+    const diff = now - Number(prev);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    if (days < 1) {
+      el.textContent = 'Back so soon! Awesome!';
+    } else if (days === 1) {
+      el.textContent = 'You last visited 1 day ago.';
+    } else {
+      el.textContent = `You last visited ${days} days ago.`;
+    }
   }
-  localStorage.setItem(key, now.toISOString());
+  localStorage.setItem(key, String(now));
 }
 
-// Initialize
 fetchDiscover();
+

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Apply to join the Lira City Chamber of Commerce with this membership application.">
   <meta name="author" content="Ogwal Allan">
-  <meta property="og:title" content="Join the Lira City Chamber">
-  <meta property="og:description" content="Submit your membership application for the Lira City Chamber of Commerce.">
-  <meta property="og:image" content="images/social-card.svg">
-  <meta property="og:url" content="join.html">
+  <meta property="og:title" content="Apply to Join – Lira City Chamber of Commerce Membership">
+  <meta property="og:description" content="Submit your membership application for the Lira City Chamber of Commerce and connect with local businesses.">
+  <meta property="og:image" content="https://allan2468coder.github.io/wdd231/chamber/images/social-card.svg">
+  <meta property="og:url" content="https://allan2468coder.github.io/wdd231/chamber/join.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <title>Join | Lira City Chamber</title>
@@ -16,10 +16,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/larger.css">
-  <link rel="stylesheet" href="styles/forms.css">
   <script src="scripts/navigation.js" defer></script>
   <script src="scripts/join.js" defer></script>
   <script src="scripts/footer.js" defer></script>
@@ -83,6 +82,7 @@
           <div class="form-field">
             <label for="membership">Membership Level
               <select id="membership" name="membership" required title="Select a membership level">
+                <option value="" disabled selected>Select a membership level</option>
                 <option value="np">NP Membership (No fee)</option>
                 <option value="bronze">Bronze Membership</option>
                 <option value="silver">Silver Membership</option>
@@ -102,24 +102,24 @@
         </div>
       </form>
 
-      <div class="membership-cards" aria-label="Membership benefits">
+      <div class="membership-cards" role="region" aria-label="Membership benefits">
         <article class="membership-card">
-          <h3>NP Membership</h3>
+          <h2>NP Membership</h2>
           <p>Nonprofit organizations join with no fee and enjoy community support, listing visibility, and event invitations.</p>
           <a href="#" data-modal="modal-np">View benefits</a>
         </article>
         <article class="membership-card">
-          <h3>Bronze Membership</h3>
+          <h2>Bronze Membership</h2>
           <p>Bronze members receive promotional exposure, event news, and access to member-only business resources.</p>
           <a href="#" data-modal="modal-bronze">View benefits</a>
         </article>
         <article class="membership-card">
-          <h3>Silver Membership</h3>
+          <h2>Silver Membership</h2>
           <p>Silver members gain priority spotlight placement, discounted event registration, and networking event invites.</p>
           <a href="#" data-modal="modal-silver">View benefits</a>
         </article>
         <article class="membership-card">
-          <h3>Gold Membership</h3>
+          <h2>Gold Membership</h2>
           <p>Gold members receive premium advertising, dedicated showcase features, event sponsorship opportunities, and training access.</p>
           <a href="#" data-modal="modal-gold">View benefits</a>
         </article>
@@ -186,13 +186,14 @@
         <address>12 Oyam Road<br>Lira City, Northern Region<br><a href="tel:+256772555300">+256 772 555 300</a><br><a href="mailto:hello@lirachamber.org">hello@lirachamber.org</a></address>
       </section>
       <div class="footer-mark" aria-hidden="true"><img src="images/chamber-mark.svg" alt="" width="58" height="58"></div>
-      <section class="developer-info">
+      <div class="developer-info">
         <p>WDD 231 Class Project</p>
         <p>Ogwal Allan</p>
         <p>&copy; <span id="currentyear"></span> Lira City Chamber</p>
         <p>Last Modification: <span id="lastModified"></span></p>
-      </section>
+      </div>
     </div>
   </footer>
 </body>
 </html>
+
