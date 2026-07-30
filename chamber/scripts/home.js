@@ -20,6 +20,49 @@ function membershipLabel(level) {
   return level === 3 ? 'Gold Member' : level === 2 ? 'Silver Member' : 'Member';
 }
 
+const WMO_CODES = {
+  0:  { description: 'Clear sky',             icon: '01d' },
+  1:  { description: 'Mainly clear',          icon: '02d' },
+  2:  { description: 'Partly cloudy',         icon: '03d' },
+  3:  { description: 'Overcast',              icon: '04d' },
+  45: { description: 'Foggy',                 icon: '50d' },
+  48: { description: 'Depositing rime fog',   icon: '50d' },
+  51: { description: 'Light drizzle',         icon: '09d' },
+  53: { description: 'Moderate drizzle',      icon: '09d' },
+  55: { description: 'Dense drizzle',         icon: '09d' },
+  56: { description: 'Light freezing drizzle',icon: '09d' },
+  57: { description: 'Dense freezing drizzle',icon: '09d' },
+  61: { description: 'Slight rain',           icon: '10d' },
+  63: { description: 'Moderate rain',         icon: '10d' },
+  65: { description: 'Heavy rain',            icon: '10d' },
+  66: { description: 'Light freezing rain',   icon: '10d' },
+  67: { description: 'Heavy freezing rain',   icon: '10d' },
+  71: { description: 'Slight snow',           icon: '13d' },
+  73: { description: 'Moderate snow',         icon: '13d' },
+  75: { description: 'Heavy snow',            icon: '13d' },
+  77: { description: 'Snow grains',           icon: '13d' },
+  80: { description: 'Slight rain showers',   icon: '09d' },
+  81: { description: 'Moderate rain showers', icon: '09d' },
+  82: { description: 'Violent rain showers',  icon: '09d' },
+  85: { description: 'Slight snow showers',   icon: '13d' },
+  86: { description: 'Heavy snow showers',    icon: '13d' },
+  95: { description: 'Thunderstorm',          icon: '11d' },
+  96: { description: 'Thunderstorm with slight hail', icon: '11d' },
+  99: { description: 'Thunderstorm with heavy hail',   icon: '11d' }
+};
+
+function getWeatherInfo(code) {
+  return WMO_CODES[code] || { description: 'Unknown', icon: '01d' };
+}
+
+function formatDateFromString(dateStr) {
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
+  }).format(new Date(dateStr + 'T12:00:00'));
+}
+
 function sampleWeatherData() {
   const now = Math.floor(Date.now() / 1000);
   return {
@@ -62,22 +105,35 @@ function renderWeather(data, note = '') {
 }
 
 async function loadWeather() {
-  const apiKey = 'YOUR_API_KEY_HERE';
-  const hasKey = apiKey && apiKey !== 'YOUR_API_KEY_HERE';
-
-  if (!hasKey) {
-    renderWeather(sampleWeatherData(), 'Add an OpenWeatherMap API key to chamber/scripts/home.js for live weather updates.');
-    return;
-  }
-
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=2.2497&lon=32.8998&units=metric&exclude=minutely,hourly,alerts&appid=${apiKey}`);
+    const response = await fetch(
+      'https://api.open-meteo.com/v1/forecast?latitude=2.2497&longitude=32.8998&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=4'
+    );
     if (!response.ok) throw new Error('Weather request failed');
-    const weatherData = await response.json();
-    renderWeather(weatherData, 'Live weather powered by OpenWeatherMap.');
+    const data = await response.json();
+
+    const currentWeather = data.current_weather;
+    const currentInfo = getWeatherInfo(currentWeather.weathercode);
+
+    const weatherData = {
+      current: {
+        temp: currentWeather.temperature,
+        weather: [{ description: currentInfo.description, icon: currentInfo.icon }]
+      },
+      daily: data.daily.time.map((dateStr, i) => {
+        const dayInfo = getWeatherInfo(data.daily.weathercode[i]);
+        return {
+          dt: new Date(dateStr + 'T12:00:00').getTime() / 1000,
+          temp: { day: data.daily.temperature_2m_max[i] },
+          weather: [{ icon: dayInfo.icon }]
+        };
+      }).slice(0, 3)
+    };
+
+    renderWeather(weatherData, 'Live weather powered by Open-Meteo (free API).');
   } catch (error) {
     console.error(error);
-    renderWeather(sampleWeatherData(), 'Live weather is unavailable. Showing sample data until the API returns successfully.');
+    renderWeather(sampleWeatherData(), 'Live weather is currently unavailable. Showing sample data.');
   }
 }
 
