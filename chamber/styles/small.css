@@ -94,7 +94,10 @@ main,
 
 .primary-nav a:hover,
 .primary-nav a:focus-visible,
-.primary-nav a[aria-current="page"] {
+.primary-nav a[aria-current="page"],
+.view-button:hover,
+.view-button:focus-visible,
+.view-button.is-active {
   color: var(--white);
   background: var(--blue);
   outline: none;
@@ -159,14 +162,6 @@ main,
 .view-button span {
   font-size: 1.25rem;
   vertical-align: -1px;
-}
-
-.view-button:hover,
-.view-button:focus-visible,
-.view-button.is-active {
-  color: var(--white);
-  background: var(--blue);
-  outline: none;
 }
 
 .member-grid {
@@ -274,7 +269,8 @@ main,
 }
 
 .member-list .member-card__head img,
-.member-list .member-card__level {
+.member-list .member-card__level,
+.footer-mark {
   display: none;
 }
 
@@ -287,7 +283,8 @@ main,
   padding: 0;
 }
 
-.member-list .member-card__body p {
+.member-list .member-card__body p,
+.detail-item p {
   margin: 0;
   color: var(--muted);
 }
@@ -343,7 +340,9 @@ main,
 }
 
 .hero-cta:hover,
-.hero-cta:focus-visible {
+.hero-cta:focus-visible,
+.submit-group input:hover,
+.submit-group input:focus-visible {
   background: var(--blue);
   transform: translateY(-2px);
 }
@@ -401,7 +400,8 @@ main,
   margin-bottom: 8px;
 }
 
-.event-item p {
+.event-item p,
+.spotlight-body p {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
@@ -413,10 +413,6 @@ main,
   font-size: 0.95rem;
 }
 
-.weather-summary {
-  display: grid;
-  gap: 16px;
-}
 
 .weather-current {
   display: flex;
@@ -439,7 +435,8 @@ main,
   color: var(--navy);
 }
 
-.weather-current .details {
+.weather-current .details,
+.detail-item {
   display: grid;
   gap: 6px;
 }
@@ -481,7 +478,8 @@ main,
   padding: 0 20px 56px;
 }
 
-.spotlight-grid {
+.spotlight-grid,
+.form-group {
   display: grid;
   gap: 20px;
 }
@@ -539,13 +537,8 @@ main,
   padding: 10px;
 }
 
-.spotlight-body p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.spotlight-body a {
+.spotlight-body a,
+.membership-card a {
   color: var(--blue);
   font-weight: 700;
   text-decoration: none;
@@ -592,7 +585,8 @@ main,
   margin-bottom: 20px;
 }
 
-.form-field label {
+.form-field label,
+.detail-item span {
   font-weight: 700;
   color: var(--navy);
 }
@@ -621,11 +615,6 @@ main,
   resize: vertical;
 }
 
-.form-group {
-  display: grid;
-  gap: 20px;
-}
-
 .submit-group {
   display: flex;
   justify-content: flex-end;
@@ -644,11 +633,6 @@ main,
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.submit-group input:hover,
-.submit-group input:focus-visible {
-  background: var(--blue);
-  transform: translateY(-2px);
-}
 
 /* ===== MEMBERSHIP CARDS & MODALS ===== */
 .membership-cards {
@@ -695,17 +679,6 @@ main,
   line-height: 1.7;
 }
 
-.membership-card a {
-  color: var(--blue);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.card-note {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-top: 8px;
-}
 
 @keyframes cardAppear {
   to {
@@ -787,20 +760,6 @@ main,
   margin-top: 24px;
 }
 
-.detail-item {
-  display: grid;
-  gap: 6px;
-}
-
-.detail-item span {
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.detail-item p {
-  margin: 0;
-  color: var(--muted);
-}
 
 .details-link {
   display: inline-block;
@@ -928,9 +887,6 @@ main,
   text-underline-offset: 3px;
 }
 
-.footer-mark {
-  display: none;
-}
 
 .developer-info {
   font-size: 0.86rem;

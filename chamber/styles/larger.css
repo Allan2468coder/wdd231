@@ -54,10 +54,7 @@
     padding: 30px 32px 54px;
   }
 
-  .spotlight-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
+  .spotlight-grid,
   .forecast-grid {
     grid-template-columns: repeat(3, 1fr);
   }
