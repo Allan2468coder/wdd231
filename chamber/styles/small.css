@@ -425,7 +425,7 @@ main,
   gap: 20px;
   padding: 18px;
   border-radius: 22px;
-  background: linear-gradient(135deg, rgba(24, 169, 153, 0.12), rgba(244, 185, 66, 0.12));
+  background: linear-gradient(135deg, rgba(15, 125, 116, 0.14), rgba(244, 185, 66, 0.12));
 }
 
 .weather-current img {
@@ -612,7 +612,7 @@ main,
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
-  outline: 3px solid rgba(24, 169, 153, 0.35);
+  outline: 3px solid rgba(15, 125, 116, 0.35);
   border-color: var(--teal);
 }
 
@@ -640,7 +640,7 @@ main,
   color: var(--white);
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 12px 24px rgb(24 169 153 / 20%);
+  box-shadow: 0 12px 24px rgb(15 125 116 / 20%);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
