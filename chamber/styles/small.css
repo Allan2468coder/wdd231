@@ -800,10 +800,7 @@ main,
 
 .cards {
   display: grid;
-  grid-template-areas:
-    "a a"
-    "b c"
-    "d e";
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
 }
 

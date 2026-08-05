@@ -59,11 +59,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* ===== DISCOVER ===== */
+/* ===== DISCOVER ===== */
   .cards {
-    grid-template-areas: "a b c d" "a e f g";
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr;
   }
 
   .cards .card img {
