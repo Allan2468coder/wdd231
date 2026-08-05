@@ -1,0 +1,17 @@
+[
+  {"id":1,"name":"Soil Health Scan","category":"Soil","type":"Field test","idealFor":"All crops","time":"20 minutes","summary":"A practical checklist for reading soil texture, moisture, and nutrient needs before planting."},
+  {"id":2,"name":"Rainwater Harvesting","category":"Water","type":"Water system","idealFor":"Dry seasons","time":"1 day setup","summary":"Simple methods for collecting roof runoff and putting it to work on the farm."},
+  {"id":3,"name":"Drip Line Planner","category":"Water","type":"Irrigation guide","idealFor":"Vegetables","time":"30 minutes","summary":"Plan efficient drip rows that bring water directly to plant roots."},
+  {"id":4,"name":"Compost Starter","category":"Soil","type":"Soil builder","idealFor":"Home farms","time":"8 weeks","summary":"Build rich, natural compost from crop waste and kitchen-friendly organics."},
+  {"id":5,"name":"Maize Growth Guide","category":"Crops","type":"Crop guide","idealFor":"Maize","time":"Seasonal","summary":"Key care checkpoints from seed selection through harvest for healthy maize."},
+  {"id":6,"name":"Tomato Care Calendar","category":"Crops","type":"Crop guide","idealFor":"Tomatoes","time":"Weekly","summary":"A clear weekly routine for staking, feeding, watering, and checking tomatoes."},
+  {"id":7,"name":"Natural Pest Watch","category":"Protection","type":"Pest guide","idealFor":"Mixed crops","time":"15 minutes","summary":"Spot common pest signs early and use practical low-impact responses."},
+  {"id":8,"name":"Seed Saving Notes","category":"Crops","type":"Seed guide","idealFor":"Garden crops","time":"Seasonal","summary":"Learn which seeds to save and how to dry and store them for next season."},
+  {"id":9,"name":"Farm Budget Sheet","category":"Planning","type":"Planning tool","idealFor":"Small farms","time":"45 minutes","summary":"Track essential costs and expected income to make confident growing decisions."},
+  {"id":10,"name":"Planting Spacing Map","category":"Planning","type":"Layout guide","idealFor":"Vegetables","time":"25 minutes","summary":"Use recommended spacing to give plants sunlight, airflow, and room to grow."},
+  {"id":11,"name":"Mulch Method","category":"Soil","type":"Field practice","idealFor":"Dry gardens","time":"1 hour","summary":"Protect soil moisture and suppress weeds with locally available mulch."},
+  {"id":12,"name":"Pollinator Patch","category":"Protection","type":"Habitat guide","idealFor":"Fruit crops","time":"Half day","summary":"Create a flower-rich edge that welcomes pollinators and beneficial insects."},
+  {"id":13,"name":"Harvest Timing","category":"Crops","type":"Harvest guide","idealFor":"Produce farms","time":"10 minutes","summary":"Simple visual signs for harvesting crops when flavor and shelf life are best."},
+  {"id":14,"name":"Market Day Checklist","category":"Planning","type":"Sales guide","idealFor":"Farm sellers","time":"30 minutes","summary":"Prepare produce, pricing, and a welcoming stall for a smooth market day."},
+  {"id":15,"name":"Shade Nursery Plan","category":"Protection","type":"Nursery guide","idealFor":"Young plants","time":"Half day","summary":"Give seedlings a gentle start with an affordable protective shade structure."}
+]
